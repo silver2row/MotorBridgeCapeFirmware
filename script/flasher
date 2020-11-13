@@ -1,6 +1,6 @@
 #!/bin/sh
 	if [ $# -eq 0 ];then
-		echo "usge:./flasher  xxxx.bin"
+		echo "usage:./flasher  xxxx.bin"
 		exit
 	fi
 	pwd
