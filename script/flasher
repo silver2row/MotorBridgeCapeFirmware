@@ -15,12 +15,12 @@
 	echo 1 > /sys/class/gpio/gpio49/value
 	sleep 0.1
 	sleep 0.1
-	python ./script/stm32loader.py -p /dev/ttyO2 -evw  $1
+	python3 ./script/stm32loader.py -p /dev/ttyO2 -evw  $1
 	if [$?==0];then
 		exit
 	else
-		python ./script/stm32loader.py -p /dev/ttyO2 -evw $1
-		echo "haha"
+		python3 ./script/stm32loader.py -p /dev/ttyO2 -evw $1
+		echo "DONE"
 	fi
 	
 	echo 0 > /sys/class/gpio/gpio117/value		
