@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # -*- coding: utf-8 -*-
 # vim: sw=4:ts=4:si:et:enc=utf-8
@@ -385,7 +385,7 @@ class CommandInterface(object):
           self.sp.write(chr(reg[0]))
           self.sp.write(chr(reg[1]))
           self.sp.write(chr(reg[2]))
-          self.sp.write(chr(reg[3]))            
+          self.sp.write(chr(reg[3]))
           crc = 3^reg[0]^reg[1]^reg[2]^reg[3];
           self.sp.write(chr(crc))
           self._wait_for_ack("0x31 programming failed")
@@ -402,7 +402,7 @@ class CommandInterface(object):
           self.sp.write(chr(reg[0]))
           self.sp.write(chr(reg[1]))
           self.sp.write(chr(reg[2]))
-          self.sp.write(chr(reg[3]))            
+          self.sp.write(chr(reg[3]))
           crc = 3^reg[0]^reg[1]^reg[2]^reg[3];
           self.sp.write(chr(crc))
           # don't wait for ack - device will have rebooted
@@ -435,7 +435,7 @@ def read(filename):
     with open(filename, 'rb') as f:
         bytes = f.read()
 
-    if bytes.startswith('\x7FELF'):
+    if bytes.startswith(b'\x7FELF'):
         # Actually an ELF file.  Convert to binary
         handle, path = tempfile.mkstemp(suffix='.bin', prefix='stm32loader')
 
